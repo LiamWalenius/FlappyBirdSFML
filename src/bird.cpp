@@ -1,6 +1,5 @@
 #include "bird.hpp"
-
-#include <iostream>
+#include "program.hpp"
 
 bool Bird::initialize(){
     if(!texture.loadFromFile(R"(media\sprites\bird.png)")){
@@ -25,8 +24,8 @@ void Bird::jump(){
     speed = jumpSpeed;
 }
 
-void Bird::update(sf::Time time){
-    speed += -9.81f * time.asSeconds();
+void Bird::update(){
+    speed += -9.81f * Program::getFrameTime().asSeconds();
     hitbox.move(0, -speed);
 
     //Bird should bounce off the ceiling

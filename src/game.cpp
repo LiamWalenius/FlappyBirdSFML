@@ -40,10 +40,10 @@ void Game::onKeyPressed(sf::Keyboard::Key key){
     }
 }
 
-void Game::update(sf::Time time){
+void Game::update(){
     switch(state){
         case State::Game:
-            return updateGame(time);
+            return updateGame();
 
         case State::End:
             return updateEnd();
@@ -69,8 +69,8 @@ void Game::endGame(){
     state = State::End;
 }
 
-void Game::updateGame(sf::Time time){
-    bird.update(time);
+void Game::updateGame(){
+    bird.update();
     pipe.update();
 
     if(birdIsColliding()){

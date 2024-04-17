@@ -10,5 +10,6 @@ void exitProgram();
 
 sf::Font& getImpactFont();
 sf::Vector2u getWindowSize();
+sf::Time getFrameTime();
 
 }

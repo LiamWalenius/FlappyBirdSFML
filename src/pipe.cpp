@@ -48,7 +48,7 @@ void Pipe::onPassBird(){
 }
 
 void Pipe::update(){
-    upperHitbox.move(-moveSpeed, 0);
+    upperHitbox.move(-moveSpeed * Program::getFrameTime().asSeconds(), 0);
     lowerHitbox.setPosition(upperHitbox.getPosition().x, lowerHitbox.getPosition().y);
 
     upperSprite.setPosition(upperHitbox.getPosition());

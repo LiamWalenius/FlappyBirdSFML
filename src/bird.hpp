@@ -9,7 +9,7 @@ class Bird : public sf::Drawable{
 
         void jump();
 
-        void update(sf::Time);
+        void update();
 
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 

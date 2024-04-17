@@ -19,7 +19,7 @@ class Pipe : public sf::Drawable{
 
     private:
         const sf::Vector2f size{150, 1000};
-        const float moveSpeed = 2;
+        const float moveSpeed = 300;
 
         sf::RectangleShape upperHitbox, lowerHitbox;
         bool hasPassedBird;

@@ -13,7 +13,7 @@ class Game : public sf::Drawable{
 
         void onKeyPressed(sf::Keyboard::Key);
 
-        void update(sf::Time);
+        void update();
 
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
@@ -21,7 +21,7 @@ class Game : public sf::Drawable{
         bool birdIsColliding();
         void endGame();
 
-        void updateGame(sf::Time);
+        void updateGame();
         void updateEnd();
 
         void incrementScore();

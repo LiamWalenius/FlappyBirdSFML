@@ -45,8 +45,8 @@ void Program::startMainLoop(){
             }
         }
 
-        sf::Time elapsed = gameClock.restart();
-        game.update(elapsed);
+        game.update();
+        gameClock.restart();
 
         window.clear(sf::Color::Cyan);
         window.draw(game);
@@ -64,4 +64,8 @@ sf::Font &Program::getImpactFont(){
 
 sf::Vector2u Program::getWindowSize(){
     return window.getSize();
+}
+
+sf::Time Program::getFrameTime(){
+    return gameClock.getElapsedTime();
 }
