@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "bird.hpp"
 #include "pipe.hpp"
+#include "endmenu.hpp"
 
 class Game : public sf::Drawable{
     enum class State{Game, End};
@@ -33,4 +34,5 @@ class Game : public sf::Drawable{
         int score;
         State state;
         sf::Text scoreText;
+        EndMenu endMenu;
 };

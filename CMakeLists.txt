@@ -21,6 +21,8 @@ add_executable(FlappyBirdSFML src/main.cpp
         src/random.hpp
         src/program.cpp
         src/program.hpp
+        src/endmenu.cpp
+        src/endmenu.hpp
 )
 target_link_libraries(FlappyBirdSFML PRIVATE sfml-graphics)
 target_compile_features(FlappyBirdSFML PRIVATE cxx_std_17)

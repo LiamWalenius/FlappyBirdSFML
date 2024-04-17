@@ -2,7 +2,7 @@
 #include "program.hpp"
 
 bool Game::initialize(){
-    if(!bird.initialize() || !pipe.initialize()){
+    if(!bird.initialize() || !pipe.initialize() || !endMenu.initialize()){
         return false;
     }
 
@@ -54,7 +54,16 @@ void Game::draw(sf::RenderTarget &target, sf::RenderStates states) const{
     target.draw(bird);
     target.draw(pipe);
     target.draw(ground);
-    target.draw(scoreText);
+
+    switch(state){
+        case State::Game:
+            target.draw(scoreText);
+            break;
+
+        case State::End:
+            target.draw(endMenu);
+            break;
+    }
 }
 
 bool Game::birdIsColliding(){
@@ -86,6 +95,8 @@ void Game::updateGame(){
 }
 
 void Game::updateEnd(){
+    endMenu.update();
+
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R)){
         return restart();
     }
