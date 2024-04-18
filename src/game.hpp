@@ -18,6 +18,8 @@ class Game : public sf::Drawable{
 
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
+        void onExitProgram();
+
     private:
         bool birdIsColliding();
         void endGame();
@@ -32,6 +34,7 @@ class Game : public sf::Drawable{
         Pipe pipe;
         sf::RectangleShape ground;
         int score;
+        int highScore;
         State state;
         sf::Text scoreText;
         EndMenu endMenu;

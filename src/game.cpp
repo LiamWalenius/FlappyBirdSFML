@@ -1,9 +1,20 @@
 #include "game.hpp"
 #include "program.hpp"
+#include <fstream>
 
 bool Game::initialize(){
     if(!bird.initialize() || !pipe.initialize() || !endMenu.initialize()){
         return false;
+    }
+
+    std::ifstream highScoreFile("highScore.txt");
+    if(!highScoreFile.is_open()){
+        highScore = 0;
+    }
+    else{
+        highScoreFile>>highScore;
+
+        highScoreFile.close();
     }
 
     scoreText.setFont(Program::getImpactFont());
@@ -76,6 +87,11 @@ bool Game::birdIsColliding(){
 
 void Game::endGame(){
     endMenu.setScore(score);
+    if(score > highScore){
+        highScore = score;
+    }
+    endMenu.setHighScore(highScore);
+
     state = State::End;
 }
 
@@ -119,4 +135,15 @@ void Game::updateScoreText(){
     sf::FloatRect textRect = scoreText.getLocalBounds();
     scoreText.setOrigin(textRect.left + textRect.width/2, 0);
     scoreText.setPosition(sf::Vector2f(Program::getWindowSize().x/2, 30));
+}
+
+void Game::onExitProgram(){
+    std::ofstream highScoreFile("highScore.txt");
+    if(!highScoreFile.is_open()){
+        return;
+    }
+
+    highScoreFile<<highScore;
+
+    highScoreFile.close();
 }

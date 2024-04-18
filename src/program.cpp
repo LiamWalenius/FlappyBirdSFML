@@ -56,9 +56,10 @@ void Program::startMainLoop(){
 
 void Program::exitProgram(){
     running = false;
+    game.onExitProgram();
 }
 
-sf::Font &Program::getImpactFont(){
+sf::Font& Program::getImpactFont(){
     return impactFont;
 }
 
