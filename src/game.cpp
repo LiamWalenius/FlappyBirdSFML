@@ -14,7 +14,7 @@ bool Game::initialize(){
 
     ground.setSize({(float)Program::getWindowSize().x, 30});
     ground.setPosition(0, Program::getWindowSize().y - 30);
-    ground.setFillColor({0, 100, 0, 255});
+    ground.setFillColor({0, 100, 0});
 
     restart();
 
@@ -75,6 +75,7 @@ bool Game::birdIsColliding(){
 }
 
 void Game::endGame(){
+    endMenu.setScore(score);
     state = State::End;
 }
 
@@ -95,7 +96,7 @@ void Game::updateGame(){
 }
 
 void Game::updateEnd(){
-    endMenu.update();
+    endMenu.updatePositions();
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R)){
         return restart();

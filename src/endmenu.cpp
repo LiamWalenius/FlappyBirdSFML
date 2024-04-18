@@ -20,23 +20,22 @@ bool EndMenu::initialize(){
     setPosition(Program::getWindowSize().x / 2, Program::getWindowSize().y / 2);
 
     initializeText(gameOverText, "Game Over!", 50);
-    gameOverText.setPosition(getPosition().x, getPosition().y - panelSize/2 + 20);
-
-    initializeText(scoreText, "Your score: 15", 30);
-    scoreText.setPosition(getPosition().x, gameOverText.getPosition().y + 100);
-
+    initializeText(scoreText, "Your score: 0", 30);
     initializeText(restartText, "Press 'r' to restart", 30);
-    restartText.setPosition(getPosition().x, scoreText.getPosition().y + 100);
-
     initializeText(exitText, "Press 'x' to exit", 30);
-    exitText.setPosition(getPosition().x, restartText.getPosition().y + 100);
+
+    updatePositions();
 
     return true;
 }
 
-void EndMenu::update(){
+void EndMenu::updatePositions(){
     panel.setPosition(getPosition());
 
+    gameOverText.setPosition(getPosition().x, getPosition().y - panel.getSize().y/2 + 40);
+    scoreText.setPosition(getPosition().x, gameOverText.getPosition().y + 100);
+    restartText.setPosition(getPosition().x, scoreText.getPosition().y + 100);
+    exitText.setPosition(getPosition().x, restartText.getPosition().y + 100);
 }
 
 void EndMenu::draw(sf::RenderTarget &target, sf::RenderStates states) const{
@@ -45,4 +44,8 @@ void EndMenu::draw(sf::RenderTarget &target, sf::RenderStates states) const{
     target.draw(scoreText);
     target.draw(restartText);
     target.draw(exitText);
+}
+
+void EndMenu::setScore(int score){
+    scoreText.setString("Your score: " + std::to_string(score));
 }

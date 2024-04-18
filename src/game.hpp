@@ -12,7 +12,7 @@ class Game : public sf::Drawable{
         bool initialize();
         void restart();
 
-        void onKeyPressed(sf::Keyboard::Key);
+        void onKeyPressed(sf::Keyboard::Key key);
 
         void update();
 

@@ -6,9 +6,11 @@ class EndMenu : public sf::Drawable, public sf::Transformable{
     public:
         bool initialize();
 
-        void update();
+        void updatePositions();
 
         void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+
+        void setScore(int score);
 
     private:
         sf::RectangleShape panel;
