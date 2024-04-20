@@ -41,12 +41,12 @@ void EndMenu::updatePositions(){
 }
 
 void EndMenu::draw(sf::RenderTarget &target, sf::RenderStates states) const{
-    target.draw(panel);
-    target.draw(gameOverText);
-    target.draw(scoreText);
-    target.draw(highScoreText);
-    target.draw(restartText);
-    target.draw(exitText);
+    target.draw(panel, states);
+    target.draw(gameOverText, states);
+    target.draw(scoreText, states);
+    target.draw(highScoreText, states);
+    target.draw(restartText, states);
+    target.draw(exitText, states);
 }
 
 void EndMenu::setScore(int score){

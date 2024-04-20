@@ -38,7 +38,7 @@ void Bird::update(){
 }
 
 void Bird::draw(sf::RenderTarget &target, sf::RenderStates states) const{
-    target.draw(sprite);
+    target.draw(sprite, states);
 }
 
 sf::RectangleShape& Bird::getHitbox(){

@@ -62,17 +62,17 @@ void Game::update(){
 }
 
 void Game::draw(sf::RenderTarget &target, sf::RenderStates states) const{
-    target.draw(bird);
-    target.draw(pipe);
-    target.draw(ground);
+    target.draw(bird, states);
+    target.draw(pipe, states);
+    target.draw(ground, states);
 
     switch(state){
         case State::Game:
-            target.draw(scoreText);
+            target.draw(scoreText, states);
             break;
 
         case State::End:
-            target.draw(endMenu);
+            target.draw(endMenu, states);
             break;
     }
 }
@@ -134,7 +134,7 @@ void Game::updateScoreText(){
     scoreText.setString(std::to_string(score));
     sf::FloatRect textRect = scoreText.getLocalBounds();
     scoreText.setOrigin(textRect.left + textRect.width/2, 0);
-    scoreText.setPosition(sf::Vector2f(Program::getWindowSize().x/2, 30));
+    scoreText.setPosition((float)Program::getWindowSize().x/2, 30);
 }
 
 void Game::onExitProgram(){

@@ -62,11 +62,9 @@ void Program::exitProgram(){
 sf::Font& Program::getImpactFont(){
     return impactFont;
 }
-
 sf::Vector2u Program::getWindowSize(){
     return window.getSize();
 }
-
 sf::Time Program::getFrameTime(){
     return gameClock.getElapsedTime();
 }

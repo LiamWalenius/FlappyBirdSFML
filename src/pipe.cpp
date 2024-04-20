@@ -61,18 +61,16 @@ void Pipe::update(){
 }
 
 void Pipe::draw(sf::RenderTarget &target, sf::RenderStates states) const{
-    target.draw(upperSprite);
-    target.draw(lowerSprite);
+    target.draw(upperSprite, states);
+    target.draw(lowerSprite, states);
 }
 
 sf::RectangleShape& Pipe::getUpperHitbox(){
     return upperHitbox;
 }
-
 sf::RectangleShape& Pipe::getLowerHitbox(){
     return lowerHitbox;
 }
-
 bool Pipe::getHasPassedBird(){
     return hasPassedBird;
 }
